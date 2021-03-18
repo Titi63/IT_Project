@@ -1,5 +1,12 @@
 CREATE DATABASE cocktailbook_pro;
 
+CREATE TABLE logins
+(
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL UNIQUE,
+password_hash VARCHAR(200) NOT NULL
+);
+
 CREATE TABLE users
 (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,17 +18,10 @@ email VARCHAR(100) NOT NULL,
 mobile_phone VARCHAR(15) NOT NULL,
 password_hash VARCHAR(200) NOT NULL,
 registered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE logins
-(
-id INT AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(50) NOT NULL UNIQUE,
-password_hash VARCHAR(200) NOT NULL,
+last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 CONSTRAINT fk_id
 FOREIGN KEY (id)
-REFERENCES users(id)
+REFERENCES logins(id)
 );
 
 CREATE TABLE recipes
@@ -33,7 +33,7 @@ user_id INT,
 published_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 CONSTRAINT fk_user_id
 FOREIGN KEY (user_id)
-REFERENCES users(id)
+REFERENCES logins(id)
 );
 
 CREATE TABLE recipe_comments
@@ -48,7 +48,7 @@ FOREIGN KEY (recipe_id)
 REFERENCES recipes(id),
 CONSTRAINT fk_user_id_comments
 FOREIGN KEY (user_id)
-REFERENCES users(id)
+REFERENCES logins(id)
 );
 
 CREATE TABLE cocktail_categories
@@ -120,33 +120,6 @@ FOREIGN KEY (cocktail_ingredients_id)
 REFERENCES ingredients(id)
 );
 
-INSERT INTO users(first_name, last_name, username, birthdate, email, mobile_phone, password_hash, registered_at, last_login)
-VALUES ('Ricky', 'Mccarthy', 'Drinkgenix', '1971-04-01', 'crimsane@verizon.net', '(516)538-1328', 'B523D8ED6FBA713B947CB9D8DC5FB01398B61D73', '2020-04-13 10:11:09', '2021-03-12 02:53:24'),
-       ('Jamie', 'Donnely', 'Cocktailium', '1971-08-03', 'skaufman@gmail.com', '(781)453-2483', '5CF46E7701676FFA707A623E0284715FD17C321A', '2021-02-13 14:45:48', '2020-01-09 18:22:21'),
-       ('Jack', 'Bush', 'Drinkverse', '1972-01-25', 'msherr@live.com', '(307)377-8606', '5395BF10A900E1A4117D367D2873742F1D1EEF4D', '2020-09-18 04:35:31', '2021-01-25 22:37:04'),
-       ('Adam', 'Walters', 'Drinklux', '1974-09-28', 'amimojo@yahoo.com', '(575)424-3641', '6D9CA655C47546D347006F1E6D8AE919BCA089DB', '2021-01-03 20:54:55', '2020-10-08 11:58:58'),
-       ('Zak', 'Farmer', 'Drinklytical', '1975-04-11', 'parrt@comcast.net',	'(503)716-1650', '30BFCDE9074211A05F8D1DEE9D1F1789ACFB74EA', '2020-11-28 03:40:08',	'2020-04-09 18:41:50'),
-       ('Lucas', 'Wolf', 'Drinklia', '1976-01-12', 'luebke@hotmail.com', '(225)395-7719', 'E0E00F68AFC3BFEAAC1C6C4212DF435A563F2FB4', '2020-08-27 06:47:38', '2020-07-21 11:51:26'),
-       ('Brendan', 'Morgan', 'Cocktailcog', '1976-07-17', 'noticias@sbcglobal.net', '(530)227-3575', '059E901CD16CF581A2F2894A09B64D68A2D41383', '2021-02-05 03:27:34',	'2020-02-21 06:07:12'),
-       ('Haider', 'Richardson',	'Cocktailly', '1976-12-30',	'jramio@sbcglobal.net',	'(636)660-2415', 'DD39E60263D1A45BAAD35128835AD7A842A7A09F', '2020-08-28 09:45:46',	'2020-09-11 11:09:47'),
-       ('Ciaran', 'Steele',	'Cocktailsio', '1979-04-13', 'joglo@comcast.net', '(626)991-1764', '240C8D860C61A18D4606C746F11605FA4330103C', '2020-09-20 15:13:39', '2021-03-18 10:37:24'),
-       ('Mark', 'Spence', 'Cocktailvio', '1979-12-29', 'doche@verizon.net',	'(310)381-5087', 'C2B13EE978D588A0BAB21F6CCC3CB871DE017A2E', '2020-06-22 23:04:28', '2020-04-17 13:24:08'),
-       ('Eddie', 'Jensen', 'Drinkify', '1980-09-09', 'ralamosm@comcast.net', '(252)426-3216', '5961034F10990B49058749236DEA3D58F359CB94', '2020-11-26 00:29:01', '2020-11-08 17:53:58'),
-       ('Taylor', 'Adams', 'Cocktailoont', '1981-03-16', 'rfisher@hotmail.com', '(704)940-3075', 'B7BC1CF93F0D25B42A9FBECB4496C8F947FBFBA9', '2020-09-12 10:30:50', '2021-03-19 22:32:09'),
-       ('Rebecca', 'Reese', 'Drinkcog', '1984-07-12', 'animats@optonline.net', '(410)462-9796', '4DD6D2946663D52830F37E0DB591BD62AABD65D3', '2020-01-17 03:32:30', '2020-02-14 14:31:50'),
-       ('Penelope', 'Barnett', 'Cocktailgenics', '1985-03-18', 'esbeck@hotmail.com', '(478)789-5711', '2915BCE865CBF2B820C6E3680D63CEC0BB67AB1E', '2020-09-16 17:34:08', '2021-01-16 12:42:04'),
-       ('Holly', 'Allen', 'Drinkara', '1985-04-28', 'sburke@yahoo.ca', '(502)396-3169', '20EB8CB873FFECB082D6A315A8287D971E7E5820', '2020-10-03 08:10:32', '2020-09-07 19:24:41'),
-       ('Rose', 'Conner', 'Cocktailquipo', '1985-07-26', 'gfody@icloud.com', '(386)627-2447', 'B65386117882B2828CED01A47B15D5A8A834BB8A', '2020-06-11 08:07:32', '2020-07-22 04:46:50'),
-       ('Paige', 'Thomas', 'Drinkya', '1985-10-25', 'bsikdar@comcast.net', '(317)333-4034', '8ED7264B18360920C1D0D1B30A226CAD37EECCAC', '2020-06-03 02:28:46', '2020-08-20 09:11:21'),
-       ('Hanna', 'Jackson', 'Drinkology', '1990-10-20', 'jdray@yahoo.ca', '(336)464-5563', 'F98373BCC18F515CA74E524C7989F26F43014EF9', '2020-12-09 15:18:21', '2021-02-23 12:32:04'),
-       ('Irene', 'Daniels', 'Drinknetic', '1992-04-22', 'shang@aol.com', '(272)888-1206', '937BA331FC75CB7D2544962C6046AF59D3B13763', '2020-11-02 18:44:56', '2020-09-28 04:18:24'),
-       ('Lily', 'Barker', 'Cocktailprism', '1993-06-23', 'kawasaki@yahoo.com', '(623)876-7649', 'A8150D8AA3286B7AFA98CC08463987C1744E00DD', '2020-04-26 13:54:41', '2020-05-14 14:49:33'),
-       ('Emilia', 'Torres', 'Cocktailsy', '1996-09-18', 'bcevc@mac.com', '(225)395-9062', 'D504CCBF4EBB18673B9653C40E63BECE5EBC60A9', '2020-02-12 22:00:13', '2020-10-11 04:13:59'),
-       ('Maya', 'Reyes', 'Drinkdo', '1999-02-23', 'dalamb@live.com', '(434)939-7529', 'BF09FA3AAA72615A54CDA596AD0B48C88861966A', '2020-01-19 15:49:40', '2020-08-04 17:14:22'),
-       ('Bonnie', 'Leon', 'Cocktailaholic', '1999-11-29', 'maratb@outlook.com', '(272)762-3777', '5E02FD0E3C3E741BF9F756E693A93B70BC397DE8', '2020-10-17 07:21:35', '2020-07-20 05:40:20'),
-       ('Olivia', 'Chapman', 'Cocktailistic', '2001-07-17', 'rnewman@verizon.net', '(684)252-9917', '17809A62E0CA884D9A4906FC86A91AA7945F5823', '2020-11-13 17:24:28', '2020-01-26 16:05:33');
-              
-       
 INSERT INTO logins(username, password_hash)
 VALUES ('Drinkgenix', 'B523D8ED6FBA713B947CB9D8DC5FB01398B61D73'),
        ('Cocktailium', '5CF46E7701676FFA707A623E0284715FD17C321A'),
@@ -172,6 +145,33 @@ VALUES ('Drinkgenix', 'B523D8ED6FBA713B947CB9D8DC5FB01398B61D73'),
        ('Drinkdo', 'BF09FA3AAA72615A54CDA596AD0B48C88861966A'),
        ('Cocktailaholic', '5E02FD0E3C3E741BF9F756E693A93B70BC397DE8'),
        ('Cocktailistic', '17809A62E0CA884D9A4906FC86A91AA7945F5823');
+
+INSERT INTO users(first_name, last_name, username, birthdate, email, mobile_phone, password_hash, registered_at, last_login)
+VALUES ('Ricky', 'Mccarthy', 'Drinkgenix', '1971-04-01', 'crimsane@verizon.net', '(516)538-1328', 'B523D8ED6FBA713B947CB9D8DC5FB01398B61D73', '2020-04-13 10:11:09', '2021-03-12 02:53:24'),
+       ('Jamie', 'Donnely', 'Cocktailium', '1971-08-03', 'skaufman@gmail.com', '(781)453-2483', '5CF46E7701676FFA707A623E0284715FD17C321A', '2021-02-13 14:45:48', '2020-01-09 18:22:21'),
+       ('Jack', 'Bush', 'Drinkverse', '1972-01-25', 'msherr@live.com', '(307)377-8606', '5395BF10A900E1A4117D367D2873742F1D1EEF4D', '2020-09-18 04:35:31', '2021-01-25 22:37:04'),
+       ('Adam', 'Walters', 'Drinklux', '1974-09-28', 'amimojo@yahoo.com', '(575)424-3641', '6D9CA655C47546D347006F1E6D8AE919BCA089DB', '2021-01-03 20:54:55', '2020-10-08 11:58:58'),
+       ('Zak', 'Farmer', 'Drinklytical', '1975-04-11', 'parrt@comcast.net',	'(503)716-1650', '30BFCDE9074211A05F8D1DEE9D1F1789ACFB74EA', '2020-11-28 03:40:08',	'2020-04-09 18:41:50'),
+       ('Lucas', 'Wolf', 'Drinklia', '1976-01-12', 'luebke@hotmail.com', '(225)395-7719', 'E0E00F68AFC3BFEAAC1C6C4212DF435A563F2FB4', '2020-08-27 06:47:38', '2020-07-21 11:51:26'),
+       ('Brendan', 'Morgan', 'Cocktailcog', '1976-07-17', 'noticias@sbcglobal.net', '(530)227-3575', '059E901CD16CF581A2F2894A09B64D68A2D41383', '2021-02-05 03:27:34',	'2020-02-21 06:07:12'),
+       ('Haider', 'Richardson',	'Cocktailly', '1976-12-30',	'jramio@sbcglobal.net',	'(636)660-2415', 'DD39E60263D1A45BAAD35128835AD7A842A7A09F', '2020-08-28 09:45:46',	'2020-09-11 11:09:47'),
+       ('Ciaran', 'Steele',	'Cocktailsio', '1979-04-13', 'joglo@comcast.net', '(626)991-1764', '240C8D860C61A18D4606C746F11605FA4330103C', '2020-09-20 15:13:39', '2021-03-18 10:37:24'),
+       ('Mark', 'Spence', 'Cocktailvio', '1979-12-29', 'doche@verizon.net',	'(310)381-5087', 'C2B13EE978D588A0BAB21F6CCC3CB871DE017A2E', '2020-06-22 23:04:28', '2020-04-17 13:24:08'),
+       ('Eddie', 'Jensen', 'Drinkify', '1980-09-09', 'ralamosm@comcast.net', '(252)426-3216', '5961034F10990B49058749236DEA3D58F359CB94', '2020-11-26 00:29:01', '2020-11-08 17:53:58'),
+       ('Taylor', 'Adams', 'Cocktailoont', '1981-03-16', 'rfisher@hotmail.com', '(704)940-3075', 'B7BC1CF93F0D25B42A9FBECB4496C8F947FBFBA9', '2020-09-12 10:30:50', '2021-03-19 22:32:09'),
+       ('Rebecca', 'Reese', 'Drinkcog', '1984-07-12', 'animats@optonline.net', '(410)462-9796', '4DD6D2946663D52830F37E0DB591BD62AABD65D3', '2020-01-17 03:32:30', '2020-02-14 14:31:50'),
+       ('Penelope', 'Barnett', 'Cocktailgenics', '1985-03-18', 'esbeck@hotmail.com', '(478)789-5711', '2915BCE865CBF2B820C6E3680D63CEC0BB67AB1E', '2020-09-16 17:34:08', '2021-01-16 12:42:04'),
+       ('Holly', 'Allen', 'Drinkara', '1985-04-28', 'sburke@yahoo.ca', '(502)396-3169', '20EB8CB873FFECB082D6A315A8287D971E7E5820', '2020-10-03 08:10:32', '2020-09-07 19:24:41'),
+       ('Rose', 'Conner', 'Cocktailquipo', '1985-07-26', 'gfody@icloud.com', '(386)627-2447', 'B65386117882B2828CED01A47B15D5A8A834BB8A', '2020-06-11 08:07:32', '2020-07-22 04:46:50'),
+       ('Paige', 'Thomas', 'Drinkya', '1985-10-25', 'bsikdar@comcast.net', '(317)333-4034', '8ED7264B18360920C1D0D1B30A226CAD37EECCAC', '2020-06-03 02:28:46', '2020-08-20 09:11:21'),
+       ('Hanna', 'Jackson', 'Drinkology', '1990-10-20', 'jdray@yahoo.ca', '(336)464-5563', 'F98373BCC18F515CA74E524C7989F26F43014EF9', '2020-12-09 15:18:21', '2021-02-23 12:32:04'),
+       ('Irene', 'Daniels', 'Drinknetic', '1992-04-22', 'shang@aol.com', '(272)888-1206', '937BA331FC75CB7D2544962C6046AF59D3B13763', '2020-11-02 18:44:56', '2020-09-28 04:18:24'),
+       ('Lily', 'Barker', 'Cocktailprism', '1993-06-23', 'kawasaki@yahoo.com', '(623)876-7649', 'A8150D8AA3286B7AFA98CC08463987C1744E00DD', '2020-04-26 13:54:41', '2020-05-14 14:49:33'),
+       ('Emilia', 'Torres', 'Cocktailsy', '1996-09-18', 'bcevc@mac.com', '(225)395-9062', 'D504CCBF4EBB18673B9653C40E63BECE5EBC60A9', '2020-02-12 22:00:13', '2020-10-11 04:13:59'),
+       ('Maya', 'Reyes', 'Drinkdo', '1999-02-23', 'dalamb@live.com', '(434)939-7529', 'BF09FA3AAA72615A54CDA596AD0B48C88861966A', '2020-01-19 15:49:40', '2020-08-04 17:14:22'),
+       ('Bonnie', 'Leon', 'Cocktailaholic', '1999-11-29', 'maratb@outlook.com', '(272)762-3777', '5E02FD0E3C3E741BF9F756E693A93B70BC397DE8', '2020-10-17 07:21:35', '2020-07-20 05:40:20'),
+       ('Olivia', 'Chapman', 'Cocktailistic', '2001-07-17', 'rnewman@verizon.net', '(684)252-9917', '17809A62E0CA884D9A4906FC86A91AA7945F5823', '2020-11-13 17:24:28', '2020-01-26 16:05:33');
+
        
 INSERT INTO cocktail_categories(`name`)
 VALUES ('alcoholic'),
@@ -720,4 +720,3 @@ VALUES (1, 4),
        (8, 122),
        (8, 123),
        (8, 124);
-       
