@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace KursovProekt
+namespace CocktailBookPro.Presenter
 {
     public partial class LoginForm : Form
     {

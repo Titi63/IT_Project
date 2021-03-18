@@ -1,0 +1,10 @@
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\CocktailBookPro.Presenter.csprojAssemblyReference.cache
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.CocktailForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.HomeForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.LoginForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.NewRecipeForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.ProfileForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.RegisterForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.SearchForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\KursovProekt.UserRecipesForm.resources
+C:\Users\Nadi1\Desktop\Exam Module 7\CocktailBookProResenter\KursovProekt\KursovProekt\obj\Debug\CocktailBookPro.Presenter.csproj.GenerateResource.cache
