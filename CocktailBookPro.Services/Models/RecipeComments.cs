@@ -11,6 +11,6 @@ namespace CocktailBookPro.Services.Models
         public string Content { get; set; }
 
         public virtual Recipes Recipe { get; set; }
-        public virtual Users User { get; set; }
+        public virtual Logins User { get; set; }
     }
 }

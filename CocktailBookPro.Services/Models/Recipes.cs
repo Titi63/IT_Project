@@ -17,7 +17,7 @@ namespace CocktailBookPro.Services.Models
         public int? UserId { get; set; }
         public string Description { get; set; }
 
-        public virtual Users User { get; set; }
+        public virtual Logins User { get; set; }
         public virtual ICollection<CocktailCategoriesRecipes> CocktailCategoriesRecipes { get; set; }
         public virtual ICollection<RecipeComments> RecipeComments { get; set; }
         public virtual ICollection<RecipeSteps> RecipeSteps { get; set; }

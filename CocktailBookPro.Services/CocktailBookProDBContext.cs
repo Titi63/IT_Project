@@ -137,9 +137,7 @@ namespace CocktailBookPro.Services
                     .HasName("username")
                     .IsUnique();
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedOnAdd();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.PasswordHash)
                     .IsRequired()
@@ -150,12 +148,6 @@ namespace CocktailBookPro.Services
                     .IsRequired()
                     .HasColumnName("username")
                     .HasMaxLength(50);
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Logins)
-                    .HasForeignKey<Logins>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_id");
             });
 
             modelBuilder.Entity<RecipeComments>(entity =>
@@ -275,7 +267,9 @@ namespace CocktailBookPro.Services
                     .HasName("username")
                     .IsUnique();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Birthdate)
                     .HasColumnName("birthdate")
@@ -310,6 +304,12 @@ namespace CocktailBookPro.Services
                     .IsRequired()
                     .HasColumnName("username")
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.Users)
+                    .HasForeignKey<Users>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_id");
             });
 
             OnModelCreatingPartial(modelBuilder);

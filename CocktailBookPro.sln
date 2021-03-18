@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktailBookPro.Services", "CocktailBookPro.Services\CocktailBookPro.Services.csproj", "{99F6F958-C387-4CA6-BADD-25BAFF211F66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktailBookPro.Services", "CocktailBookPro.Services\CocktailBookPro.Services.csproj", "{576E8560-FAC9-456A-90B2-B3FDBD80CB6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE153EBA-A418-4914-A097-8EEAD13E5B47}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\App.config = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\App.config
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.Designer.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.Designer.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.resx = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\CocktailForm.resx
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.Designer.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.Designer.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.resx = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\HomeForm.resx
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\KursovProekt.csproj = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\KursovProekt.csproj
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.Designer.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.Designer.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.resx = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\LoginForm.resx
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.Designer.cs = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.Designer.cs
+		..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.resx = ..\..\..\source\repos\Titi63\IT_Project\KursovProekt\KursovProekt\NewRecipeForm.resx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +29,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{99F6F958-C387-4CA6-BADD-25BAFF211F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99F6F958-C387-4CA6-BADD-25BAFF211F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99F6F958-C387-4CA6-BADD-25BAFF211F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99F6F958-C387-4CA6-BADD-25BAFF211F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{576E8560-FAC9-456A-90B2-B3FDBD80CB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{576E8560-FAC9-456A-90B2-B3FDBD80CB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{576E8560-FAC9-456A-90B2-B3FDBD80CB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{576E8560-FAC9-456A-90B2-B3FDBD80CB6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
